@@ -1,0 +1,23 @@
+
+SELECT
+    p.name AS product_name,
+    p.category,
+    p.brand,
+    oi.user_id,
+    oi.product_id,
+    oi.status,
+    oi.created_at,
+    oi.shipped_at,
+    oi.delivered_at,
+    oi.returned_at,
+    oi.sale_price,
+    p.cost,
+    p.retail_price
+
+FROM
+    `bigquery-public-data.thelook_ecommerce.order_items` AS oi
+
+LEFT JOIN
+    `bigquery-public-data.thelook_ecommerce.products` AS p
+ON
+    oi.product_id = p.id
